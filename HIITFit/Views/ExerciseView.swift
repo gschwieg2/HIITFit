@@ -38,6 +38,7 @@ struct ExerciseView: View {
     let exerciseNames = ["Squat","Step Up","Burpee","Sun Salute"]
     let interval: TimeInterval = 30
     let index: Int
+    @State private var presentAlert = false
     var body: some View {
         GeometryReader { geometry in
             VStack{
@@ -53,14 +54,20 @@ struct ExerciseView: View {
                         .foregroundColor(.red)
                 }
                 Text(Date().addingTimeInterval(interval), style: .timer).font(.system(size: 90))
+                    .background(Color.black)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(15)
                 Button("Start/Done") { }
                     .font(.title3)
                     .padding()
                 RatingView()
                     .padding()
                 Spacer()
-                Button("History") { }
+                Button("History") {
+                    presentAlert = true
+                }
                 .padding(.bottom)
+                .alert("There is no history to show", isPresented: $presentAlert, actions: {})
                 
             }
         }
