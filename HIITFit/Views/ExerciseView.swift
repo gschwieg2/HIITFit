@@ -38,11 +38,11 @@ struct ExerciseView: View {
     let exerciseNames = ["Squat","Step Up","Burpee","Sun Salute"]
     let interval: TimeInterval = 30
     let index: Int
-    @State private var presentAlert = false
+    @State private var showSuccess = false
     var body: some View {
         GeometryReader { geometry in
             VStack{
-                HeaderView(exerciseName: exerciseNames[index])
+                HeaderView(titleText: exerciseNames[index])
                     .padding(.bottom)
                 if let url = Bundle.main.url(
                     forResource: videoNames[index],
@@ -54,20 +54,19 @@ struct ExerciseView: View {
                         .foregroundColor(.red)
                 }
                 Text(Date().addingTimeInterval(interval), style: .timer).font(.system(size: 90))
-                    .background(Color.black)
-                    .foregroundColor(Color.white)
-                    .cornerRadius(15)
-                Button("Start/Done") { }
+                Button("Start/Done") {
+                    showSuccess.toggle()
+                }
+                .fullScreenCover(isPresented: $showSuccess) {
+                   SuccessView(showSuccess: $showSuccess)
+                }
                     .font(.title3)
                     .padding()
                 RatingView()
                     .padding()
                 Spacer()
-                Button("History") {
-                    presentAlert = true
-                }
+                Button("History") { }
                 .padding(.bottom)
-                .alert("There is no history to show", isPresented: $presentAlert, actions: {})
                 
             }
         }

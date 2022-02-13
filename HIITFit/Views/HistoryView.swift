@@ -32,43 +32,50 @@
 
 import SwiftUI
 
-struct WelcomeView: View {
+struct HistoryView: View {
+    let today = Date()
+    let yesterday = Date().addingTimeInterval(-86400)
+    
+    let exercise1 = ["Squat", "Step Up", "Burpee", "Sun Salute"]
+    let exercise2 = ["Squat", "Step Up", "Burpee"]
     var body: some View {
-        ZStack {
-            VStack {
-                HeaderView(titleText: "Welcome")
-                Spacer()
-                Button("History") { }
-                .padding(.bottom)
+        ZStack(alignment: .topTrailing) {
+            Button(action: {}) {
+                Image(systemName: "xmark.circle")
+                    .font(.title)
+                    .padding(.trailing)
             }
-            VStack {
-                HStack(alignment: .bottom) {
-                    VStack(alignment: .leading) {
-                        Text("Get fit")
-                            .font(.largeTitle)
-                        Text("with high intensity interval training")
-                            .font(.headline)
-                        
-                    }
-                    Image("step-up")
-                        .resizedToFill(width: 240, height: 240)
-                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+            VStack{
+                Text("History")
+                    .font(.title)
+                    .padding()
+                Form {
+                    Section(
+                        header:
+                            Text(today.formatted(as: "MMM d"))
+                            .font(.headline)) {
+                                ForEach(exercise1, id: \.self) { exercise in
+                                    Text(exercise)
+                                }
+                            }
+                    Section(
+                        header:
+                            Text(yesterday.formatted(as: "MMM d"))
+                            .font(.headline)) {
+                                ForEach(exercise2, id: \.self) { exercise in
+                                    Text(exercise)
+                                }
+                            }
+                    
                 }
-                Button(action: { }) {
-                    Text("Get Started")
-                    Image(systemName: "arrow.right.circle")
-                }
-                .font(.title2)
-                .padding()
-                .background(RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.gray, lineWidth: 2))
             }
         }
+        
     }
 }
 
-struct WelcomeView_Previews: PreviewProvider {
+struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        HistoryView()
     }
 }
