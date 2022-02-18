@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		3F2FEFCA27A31EB20024832C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FEFC927A31EB20024832C /* WelcomeView.swift */; };
 		3F2FEFCC27A31F010024832C /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2FEFCB27A31F010024832C /* ExerciseView.swift */; };
+		3F8971BE27BF1191008676D4 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8971BD27BF1191008676D4 /* Exercise.swift */; };
+		3F8971C027BFFDB6008676D4 /* HistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8971BF27BFFDB6008676D4 /* HistoryStore.swift */; };
+		3F8971C427C005AF008676D4 /* HistoryStoreDevData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8971C327C005AF008676D4 /* HistoryStoreDevData.swift */; };
+		3F8971C727C00D6F008676D4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F8971C927C00D6F008676D4 /* Localizable.strings */; };
+		3F8971CB27C01EF1008676D4 /* squat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3F8971CD27C01EF1008676D4 /* squat.mp4 */; };
 		3FA28DAA27AAF8060007F19E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA28DA927AAF8060007F19E /* HeaderView.swift */; };
 		3FA28DAC27AB05BE0007F19E /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA28DAB27AB05BE0007F19E /* RatingView.swift */; };
 		3FA3396927B4287500E6AA4C /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA3396827B4287500E6AA4C /* HistoryView.swift */; };
@@ -21,13 +26,18 @@
 		CD30C94025147A8C0049DB93 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD30C93E25147A8C0049DB93 /* ImageExtension.swift */; };
 		CD30C94625147AEF0049DB93 /* step-up.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CD30C94225147AEF0049DB93 /* step-up.mp4 */; };
 		CD30C94725147AEF0049DB93 /* burpee.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CD30C94325147AEF0049DB93 /* burpee.mp4 */; };
-		CD30C94825147AEF0049DB93 /* squat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CD30C94425147AEF0049DB93 /* squat.mp4 */; };
 		CD30C94925147AEF0049DB93 /* sun-salute.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CD30C94525147AEF0049DB93 /* sun-salute.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F2FEFC927A31EB20024832C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		3F2FEFCB27A31F010024832C /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
+		3F8971BD27BF1191008676D4 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		3F8971BF27BFFDB6008676D4 /* HistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStore.swift; sourceTree = "<group>"; };
+		3F8971C327C005AF008676D4 /* HistoryStoreDevData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStoreDevData.swift; sourceTree = "<group>"; };
+		3F8971C827C00D6F008676D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3F8971CA27C01E13008676D4 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3F8971CC27C01EF1008676D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/squat.mp4; sourceTree = "<group>"; };
 		3FA28DA927AAF8060007F19E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		3FA28DAB27AB05BE0007F19E /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		3FA3396827B4287500E6AA4C /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
@@ -42,7 +52,6 @@
 		CD30C93E25147A8C0049DB93 /* ImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		CD30C94225147AEF0049DB93 /* step-up.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "step-up.mp4"; sourceTree = "<group>"; };
 		CD30C94325147AEF0049DB93 /* burpee.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = burpee.mp4; sourceTree = "<group>"; };
-		CD30C94425147AEF0049DB93 /* squat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = squat.mp4; sourceTree = "<group>"; };
 		CD30C94525147AEF0049DB93 /* sun-salute.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sun-salute.mp4"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +80,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3F8971C227BFFE81008676D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F8971BD27BF1191008676D4 /* Exercise.swift */,
+				3F8971BF27BFFDB6008676D4 /* HistoryStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CD30C917251474DC0049DB93 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				CD30C923251474DC0049DB93 /* HIITFitApp.swift */,
+				3F8971C927C00D6F008676D4 /* Localizable.strings */,
+				3F8971C227BFFE81008676D4 /* Model */,
 				3F2FEFCD27A321170024832C /* Views */,
 				CD30C93E25147A8C0049DB93 /* ImageExtension.swift */,
 				CD30C93D25147A8C0049DB93 /* DateExtension.swift */,
@@ -106,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				CD30C92A251474DD0049DB93 /* Preview Assets.xcassets */,
+				3F8971C327C005AF008676D4 /* HistoryStoreDevData.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -114,7 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				CD30C94325147AEF0049DB93 /* burpee.mp4 */,
-				CD30C94425147AEF0049DB93 /* squat.mp4 */,
+				3F8971CD27C01EF1008676D4 /* squat.mp4 */,
 				CD30C94225147AEF0049DB93 /* step-up.mp4 */,
 				CD30C94525147AEF0049DB93 /* sun-salute.mp4 */,
 			);
@@ -164,6 +185,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = CD30C917251474DC0049DB93;
 			productRefGroup = CD30C921251474DC0049DB93 /* Products */;
@@ -180,9 +202,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD30C94825147AEF0049DB93 /* squat.mp4 in Resources */,
+				3F8971CB27C01EF1008676D4 /* squat.mp4 in Resources */,
 				CD30C94725147AEF0049DB93 /* burpee.mp4 in Resources */,
 				CD30C92B251474DD0049DB93 /* Preview Assets.xcassets in Resources */,
+				3F8971C727C00D6F008676D4 /* Localizable.strings in Resources */,
 				CD30C928251474DD0049DB93 /* Assets.xcassets in Resources */,
 				CD30C94925147AEF0049DB93 /* sun-salute.mp4 in Resources */,
 				CD30C94625147AEF0049DB93 /* step-up.mp4 in Resources */,
@@ -221,8 +244,11 @@
 				3F2FEFCA27A31EB20024832C /* WelcomeView.swift in Sources */,
 				3FA3396B27B6C77700E6AA4C /* SuccessView.swift in Sources */,
 				CD30C926251474DC0049DB93 /* ContentView.swift in Sources */,
+				3F8971C027BFFDB6008676D4 /* HistoryStore.swift in Sources */,
+				3F8971C427C005AF008676D4 /* HistoryStoreDevData.swift in Sources */,
 				3FA28DAC27AB05BE0007F19E /* RatingView.swift in Sources */,
 				CD30C93F25147A8C0049DB93 /* DateExtension.swift in Sources */,
+				3F8971BE27BF1191008676D4 /* Exercise.swift in Sources */,
 				CD30C924251474DC0049DB93 /* HIITFitApp.swift in Sources */,
 				CD30C94025147A8C0049DB93 /* ImageExtension.swift in Sources */,
 				3FA3396927B4287500E6AA4C /* HistoryView.swift in Sources */,
@@ -232,11 +258,32 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		3F8971C927C00D6F008676D4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F8971C827C00D6F008676D4 /* en */,
+				3F8971CA27C01E13008676D4 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		3F8971CD27C01EF1008676D4 /* squat.mp4 */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F8971CC27C01EF1008676D4 /* Base */,
+			);
+			name = squat.mp4;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		CD30C92D251474DD0049DB93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -298,6 +345,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
