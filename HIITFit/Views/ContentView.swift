@@ -41,9 +41,11 @@ struct ContentView: View {
               ExerciseView(selectedTab: $selectedTab, index: index).tag(index)
           }
       }
+      .environmentObject(HistoryStore())
       .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
   }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
