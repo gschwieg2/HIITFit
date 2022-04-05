@@ -1,15 +1,15 @@
-/// Copyright (c) 2021 Razeware LLC
-///
+/// Copyright (c) 2022 Razeware LLC
+/// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-///
+/// 
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-///
+/// 
 /// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
@@ -17,7 +17,7 @@
 /// or information technology.  Permission for such use, copying, modification,
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
-///
+/// 
 /// This project and source code may use libraries or frameworks that are
 /// released under various Open-Source licenses. Use of those libraries and
 /// frameworks are governed by their own individual licenses.
@@ -32,42 +32,55 @@
 
 import SwiftUI
 
-@main
-struct HIITFitApp: App {
-    @StateObject private var historyStore: HistoryStore
-    @State private var showAlert = false
-    
-    init() {
-        let historyStore: HistoryStore
-        do {
-          historyStore = try HistoryStore(withChecking: true)
-        } catch {
-          print("Could not load history data")
-          historyStore = HistoryStore()
-          showAlert = true
-        }
-        _historyStore = StateObject(wrappedValue: historyStore)
+struct RaisedButton: View {
+  let buttonText: String
+  let action: () -> Void
+
+  var body: some View {
+    Button(action: {
+      action()
+    }, label: {
+      Text(buttonText)
+        .raisedButtonTextStyle()
+    })
+    .buttonStyle(RaisedButtonStyle())
+  }
+}
+
+struct RaisedButtonStyle: ButtonStyle {
+  func makeBody(configuration: Configuration) -> some View {
+    configuration.label
+      .frame(maxWidth: .infinity)
+      .padding([.top, .bottom], 12)
+      .background(
+        Capsule()
+            .foregroundColor(Color("background"))
+            .shadow(color: Color("drop-shadow"), radius: 4, x: 6, y: 6)
+            .shadow(color: Color("drop-highlight"), radius: 4, x: -6, y: -6)
+            
+          
+      )
+  }
+}
+
+extension Text {
+  func raisedButtonTextStyle() -> some View {
+    self
+    .font(.body)
+    .fontWeight(.bold)
+  }
+}
+
+struct RaisedButton_Previews: PreviewProvider {
+  static var previews: some View {
+    ZStack {
+      RaisedButton(buttonText: "Get Started") {
+        print("Hello World")
       }
-    
-    var body: some Scene {
-        WindowGroup {
-          ContentView()
-            .environmentObject(historyStore)
-            .onAppear {
-              print(FileManager.default.urls(
-                for: .documentDirectory,
-                in: .userDomainMask))
-            }
-            .alert(isPresented: $showAlert) {
-              Alert(
-                title: Text("History"),
-                message: Text(
-                  """
-                  Unfortunately we can't load your past history.
-                  Email support:
-                    support@xyz.com
-                  """))
-            }
-        }
-      }
+      .buttonStyle(RaisedButtonStyle())
+      .padding(20)
+    }
+    .background(Color("background"))
+    .previewLayout(.sizeThatFits)
+  }
 }

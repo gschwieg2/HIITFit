@@ -32,74 +32,33 @@
 
 import SwiftUI
 
-struct RatingView: View {
-    let exerciseIndex: Int
-    @AppStorage("ratings") private var ratings = "4000"
-    @State private var rating = 0
-    let maximumRating = 5
-    
-    let onColor = Color.red
-    let offColor = Color.gray
-    
-    fileprivate func convertRating() {
-        let index = ratings.index(
-            ratings.startIndex,
-            offsetBy: exerciseIndex)
-        let character = ratings[index]
-        rating = character.wholeNumberValue ?? 0
-    }
-    
+struct GradientBackground: View {
     var body: some View {
-        HStack {
-              ForEach(1 ..< maximumRating + 1) { index in
-                Button(action: {
-                  updateRating(index: index)
-                }, label: {
-                  Image(systemName: "waveform.path.ecg")
-                    .foregroundColor(
-                      index > rating ? offColor : onColor)
-                    .font(.body)
-                })
-                .buttonStyle(EmbossedButtonStyle(buttonShape: .round))
-                .onChange(of: ratings) { _ in
-                  convertRating()
-                }
-                .onAppear {
-                  convertRating()
-                }
-              }
-            }
-            .font(.largeTitle)
-          
+        LinearGradient(
+            gradient: gradient,
+            startPoint: .top,
+            endPoint: .bottom)
+            .edgesIgnoringSafeArea(.all)
     }
-    
-    func updateRating(index: Int) {
-        rating = index
-        let index = ratings.index(
-            ratings.startIndex,
-            offsetBy: exerciseIndex)
-        ratings.replaceSubrange(index...index, with: String(rating))
-    }
-    
-    init(exerciseIndex: Int) {
-        self.exerciseIndex = exerciseIndex
-        let desiredLength = Exercise.exercises.count
-        if ratings.count < desiredLength {
-            ratings = ratings.padding(
-                toLength: desiredLength,
-                withPad: "0",
-                startingAt: 0)
-        }
+    var gradient: Gradient {
+        let color1 = Color("gradient-top")
+        let color2 = Color("gradient-bottom")
+        let background = Color("background")
+        return Gradient(
+          stops: [
+            Gradient.Stop(color: color1, location: 0),
+            Gradient.Stop(color: color2, location: 0.9),
+            Gradient.Stop(color: background, location: 0.9),
+            Gradient.Stop(color: background, location: 1)
+          ])
+        
     }
 }
 
-struct RatingView_Previews: PreviewProvider {
-    @AppStorage("ratings") static var rating: String?
+struct GradientBackground_Previews: PreviewProvider {
     static var previews: some View {
-        rating = nil
-        return RatingView(exerciseIndex: 0)
+        GradientBackground()
+            .frame(width: 300, height: 300)
             .previewLayout(.sizeThatFits)
     }
 }
-
-
